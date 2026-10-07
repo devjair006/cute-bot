@@ -32,24 +32,22 @@ export default function Navbar({ activeView, setActiveView, onToggleWidgetPrevie
         </div>
       </div>
 
-      {/* Main navigation switcher */}
-      <nav className="nav-tabs">
-        <button
-          className={`nav-tab-btn ${activeView === 'chat' ? 'active' : ''}`}
-          onClick={() => setActiveView('chat')}
-        >
-          <MessageSquareHeart size={18} />
-          <span>Chatbot Público</span>
-        </button>
-
-        <button
-          className={`nav-tab-btn ${activeView === 'admin' ? 'active' : ''}`}
-          onClick={() => setActiveView('admin')}
-        >
-          <Sliders size={18} />
-          <span>Panel Admin & Excel</span>
-        </button>
-      </nav>
+      {/* Navigation: Only visible when the admin is on /admin route */}
+      {activeView === 'admin' ? (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <span className="badge-tag" style={{ background: '#fef2f2', color: '#dc2626', borderColor: '#fca5a5' }}>
+            🔒 Modo Administrador
+          </span>
+          <button
+            className="btn-cute-secondary"
+            onClick={() => setActiveView('chat')}
+            style={{ fontSize: '0.85rem', padding: '0.45rem 1rem' }}
+          >
+            <MessageSquareHeart size={16} />
+            <span>Ver Chatbot de Clientes</span>
+          </button>
+        </div>
+      ) : null}
 
       {/* Right tools: Sound toggle & Theme picker */}
       <div className="nav-actions">
@@ -78,16 +76,18 @@ export default function Navbar({ activeView, setActiveView, onToggleWidgetPrevie
           {config.soundEnabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
         </button>
 
-        {/* Widget Preview Toggle */}
-        <button
-          onClick={onToggleWidgetPreview}
-          className="btn-cute-secondary"
-          style={{ padding: '0.45rem 0.95rem', fontSize: '0.82rem' }}
-          title="Probar widget flotante como en tu tienda web"
-        >
-          <Bot size={15} />
-          <span style={{ display: 'none', '@media (min-width: 768px)': { display: 'inline' } }}>Probar Flotante</span>
-        </button>
+        {/* Widget Preview Toggle - Only in Admin mode */}
+        {activeView === 'admin' && (
+          <button
+            onClick={onToggleWidgetPreview}
+            className="btn-cute-secondary"
+            style={{ padding: '0.45rem 0.95rem', fontSize: '0.82rem' }}
+            title="Probar widget flotante como en tu tienda web"
+          >
+            <Bot size={15} />
+            <span>Probar Flotante</span>
+          </button>
+        )}
       </div>
     </header>
   );
