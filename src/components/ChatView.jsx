@@ -4,6 +4,7 @@ import confetti from 'canvas-confetti';
 import { useBot } from '../context/BotContext';
 import { queryAIWithContext } from '../utils/nlpEngine';
 import { sounds } from '../utils/sound';
+import CuteAvatar from './CuteAvatar';
 
 export default function ChatView({ isWidgetMode = false, onCloseWidget }) {
   const { knowledgeBase, config } = useBot();
@@ -171,17 +172,13 @@ export default function ChatView({ isWidgetMode = false, onCloseWidget }) {
         <div className="chat-header-info">
           <div className="chat-avatar-wrapper">
             <div className="chat-header-avatar animate-float">
-              {config.botAvatarType === 'url' ? (
-                <img src={config.botAvatar} alt="bot avatar" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
-              ) : (
-                <span>{config.botAvatar || '🎀'}</span>
-              )}
+              <CuteAvatar id={config.botAvatar} size={36} />
             </div>
             <div className="online-dot" />
           </div>
           <div>
             <div className="chat-header-name">
-              {config.botName || 'Lola AI'}
+              {config.botName || 'Mila AI'}
               <Sparkles size={14} style={{ color: 'var(--primary)' }} />
             </div>
             <div className="chat-header-status">
@@ -218,11 +215,7 @@ export default function ChatView({ isWidgetMode = false, onCloseWidget }) {
           <div key={msg.id} className={`message-row ${msg.sender}`}>
             {msg.sender === 'bot' && (
               <div className="msg-avatar">
-                {config.botAvatarType === 'url' ? (
-                  <img src={config.botAvatar} alt="bot" style={{ width: '100%', height: '100%', borderRadius: '50%' }} />
-                ) : (
-                  <span>{config.botAvatar || '🎀'}</span>
-                )}
+                <CuteAvatar id={config.botAvatar} size={26} />
               </div>
             )}
 
@@ -261,7 +254,7 @@ export default function ChatView({ isWidgetMode = false, onCloseWidget }) {
         {isTyping && (
           <div className="message-row bot">
             <div className="msg-avatar">
-              <span>{config.botAvatar || '🎀'}</span>
+              <CuteAvatar id={config.botAvatar} size={26} />
             </div>
             <div className="typing-box">
               <span className="typing-dot" />

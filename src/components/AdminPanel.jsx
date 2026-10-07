@@ -8,6 +8,7 @@ import { useBot } from '../context/BotContext';
 import { parseExcelFile, downloadSampleTemplate, exportKnowledgeBaseToExcel } from '../utils/excelHelper';
 import { testAIConnection } from '../utils/nlpEngine';
 import { sounds } from '../utils/sound';
+import CuteAvatar, { AVATAR_OPTIONS } from './CuteAvatar';
 
 export default function AdminPanel() {
   const { 
@@ -497,7 +498,7 @@ export default function AdminPanel() {
               className="form-input"
               value={config.botName}
               onChange={(e) => updateConfig({ botName: e.target.value })}
-              placeholder="Ej. Lola AI 🎀"
+              placeholder="Ej. Mila AI ✨"
             />
           </div>
 
@@ -513,25 +514,37 @@ export default function AdminPanel() {
           </div>
 
           <div className="form-group">
-            <label className="form-label">Avatar del Bot 💕</label>
-            <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.75rem' }}>
-              {['🎀', '🐱', '🐰', '👑', '🌸', '💖', '☕', '🍓'].map((emoji) => (
-                <button
-                  key={emoji}
-                  type="button"
-                  onClick={() => updateConfig({ botAvatar: emoji, botAvatarType: 'emoji' })}
-                  style={{
-                    width: '45px',
-                    height: '45px',
-                    fontSize: '1.4rem',
-                    borderRadius: 'var(--radius-md)',
-                    background: config.botAvatar === emoji ? 'var(--primary-light)' : '#ffffff',
-                    border: `2px solid ${config.botAvatar === emoji ? 'var(--primary)' : 'var(--card-border)'}`
-                  }}
-                >
-                  {emoji}
-                </button>
-              ))}
+            <label className="form-label">Avatar Vectorial SVG del Bot 💕</label>
+            <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.65rem' }}>
+              Avatares vectoriales SVG personalizables en alta definición:
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '0.75rem' }}>
+              {AVATAR_OPTIONS.map((opt) => {
+                const isSelected = config.botAvatar === opt.id || (opt.id === 'ribbon' && (!config.botAvatar || config.botAvatar === '🎀'));
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    title={opt.name}
+                    onClick={() => updateConfig({ botAvatar: opt.id, botAvatarType: 'svg' })}
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderRadius: 'var(--radius-md)',
+                      background: isSelected ? 'var(--primary-light)' : '#ffffff',
+                      border: `2px solid ${isSelected ? 'var(--primary)' : 'var(--card-border)'}`,
+                      cursor: 'pointer',
+                      boxShadow: isSelected ? '0 4px 12px rgba(255, 101, 163, 0.3)' : 'none',
+                      transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                    }}
+                  >
+                    <CuteAvatar id={opt.id} size={30} />
+                  </button>
+                );
+              })}
             </div>
             <input
               type="text"

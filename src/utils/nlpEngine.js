@@ -48,7 +48,7 @@ export function findBestMatch(userMessage, knowledgeBase, config) {
     return {
       type: 'greeting',
       source: 'local',
-      answer: `¡Holi hermosa! 💖 Soy **${config.botName || 'Lola'}**, tu asesora y asistente virtual en **${config.companyName || 'la boutique'}** 🌸. ¿En qué te consiento hoy? Puedes preguntar por nuestro catálogo de ropa, bolsos, skincare, bebidas rosa o dudas sobre envíos y pagos ✨`,
+      answer: `¡Holi hermosa! 💖 Soy **${config.botName || 'Mila'}**, tu asesora y asistente virtual en **${config.companyName || 'la boutique'}** 🌸. ¿En qué te consiento hoy? Puedes preguntar por nuestro catálogo de ropa, bolsos, skincare, bebidas rosa o dudas sobre envíos y pagos ✨`,
       matchedItem: null,
       score: 1.0
     };
@@ -315,7 +315,7 @@ export async function queryAIWithContext(userMessage, knowledgeBase, config) {
     `[REGISTRO #${i+1}] Categoría: ${k.category}\nPregunta/Producto: ${k.question}\nRespuesta/Detalle: ${k.answer}\nPalabras clave: ${k.keywords}`
   ).join('\n---\n');
 
-  const systemPrompt = `Eres ${config.botName || 'Lola'}, la asesora virtual de ventas y atención al cliente corporativa de "${config.companyName || 'Boutique & Café Rosé'}".
+  const systemPrompt = `Eres ${config.botName || 'Mila'}, la asesora virtual de ventas y atención al cliente corporativa de "${config.companyName || 'Boutique & Café Rosé'}".
 Tu personalidad es ultra cute, dulce, educada, chic, estética y profesional. Usas emojis lindos (🌸, 💖, ✨, 🎀, 🛍️, 🍰, 🧁) de forma natural y elegante.
 
 Tienes acceso completo al siguiente Catálogo de Inventario y Base de Conocimientos extraído del archivo Excel de la empresa:

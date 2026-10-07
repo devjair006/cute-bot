@@ -1,4 +1,4 @@
-# Lola AI 🎀 | Documentación Técnica & Manual de Uso del Chatbot
+# Mila AI ✨ | Documentación Técnica & Manual de Uso del Chatbot
 
 Documento detallado sobre propósito, opciones funcionales, arquitectura, stack tecnológico y herramientas del chatbot corporativo.
 
@@ -6,13 +6,13 @@ Documento detallado sobre propósito, opciones funcionales, arquitectura, stack 
 
 ## 1. ¿Para qué sirve este Chatbot?
 
-**Lola AI** es una solución integral de atención al cliente y asistente de ventas virtual para empresas con enfoque de marca estético (*girlie/cute*), como boutiques de moda, marcas de belleza y skincare, cafeterías temáticas, tiendas de regalos o ecommerce.
+**Mila AI** es una solución integral de atención al cliente y asistente de ventas virtual para empresas con enfoque de marca estético (*girlie/cute*), como boutiques de moda, marcas de belleza y skincare, cafeterías temáticas, tiendas de regalos o ecommerce.
 
 ### Objetivos y Beneficios de Negocio
 * **Atención al Cliente 24/7**: Responde al instante dudas recurrentes de los clientes sobre horarios, dirección física, políticas de cambio, tiempos y costos de paquetería sin requerir un operador humano continuo.
 * **Asesora de Ventas y Consulta de Catálogo**: Conoce el inventario completo cargado desde Excel (productos, descripciones, tallas, colores, precios en MXN y existencias en stock).
 * **Cero Costo Operativo Obligatorio**: Incluye un motor inteligente local que funciona **100% gratis y sin claves de API**, con opción de activar modelos de lenguaje avanzados (Groq / Gemini) para respuestas conversacionales de alta fluidez.
-* **Fidelización y Experiencia de Marca**: Su diseño *aesthetic* genera una conexión cálida y agradable con los compradores mediante micro-interacciones (sonidos sutiles, confeti reactivo, botones con animación flotante).
+* **Fidelización y Experiencia de Marca**: Su diseño *aesthetic* genera una conexión cálida y agradable con los compradores mediante micro-interacciones (sonidos sutiles, confeti reactivo, botones con animación flotante, avatares vectoriales SVG sin emojis planos).
 * **Fácil Administración Sin Código**: El dueño o equipo del negocio actualiza preguntas y productos editando una simple hoja de cálculo en Excel.
 
 ---
@@ -28,7 +28,7 @@ El sistema opera bajo una arquitectura de rutas separadas para garantizar la pri
 
 ```mermaid
 graph TD
-    User([Cliente]) -->|Visita /| PublicChat[Chatbot Público Lola AI]
+    User([Cliente]) -->|Visita /| PublicChat[Chatbot Público Mila AI]
     PublicChat -->|Consulta duda| Engine[Motor NLP / IA]
     Admin([Administrador]) -->|Visita /admin| AdminPanel[Panel de Administración]
     AdminPanel -->|Carga .xlsx| LocalStorage[(Base de Datos Local / Excel)]
@@ -69,7 +69,7 @@ El chatbot viene pre-configurado con un catálogo completo para Boutique & Café
 
 ### D. Personalización Estética (Girlie System)
 * **4 Paletas de Color Pastel**: Fresa Rosé (`#ff65a3`), Lavanda Chic (`#a855f7`), Melocotón Dulce (`#fb7185`) y Menta Chic (`#14b8a6`).
-* **Selector de Avatar**: Emojis dedicados (🎀, 🐱, 🐰, 👑, 🌸, 💖, ☕, 🍓) o URL de imagen/logo propio.
+* **Selector de Avatar Vectorial SVG**: Colección de avatares vectoriales SVG artesanales y nítidos (`ribbon` Moñito Coquette, `kitty` Gatita Kawaii, `bunny` Conejita Dulce, `sparkle_heart` Corazón Radiante, `crown` Corona Princesa, `sakura` Flor Sakura, `coffee` Café Latte, `boutique_bag` Bolsa Boutique) o URL externa de logo de marca.
 * **Edición de Textos**: Nombre del bot, empresa, mensaje de bienvenida y mensaje cuando no se localiza un producto (*fallback*).
 
 ### E. Integración Web & Tiendas Online
@@ -88,6 +88,7 @@ El chatbot viene pre-configurado con un catálogo completo para Boutique & Café
 | **Vite** | `v8.3.3` | Bundler y servidor de desarrollo ultra ligero y veloz. |
 | **React** | `v19.x` | Librería UI para manejo reactivo del estado del chat y administración. |
 | **SheetJS (`xlsx`)** | `v0.18.5` | Motor cliente para parsear, procesar y generar archivos Excel `.xlsx` directamente en el navegador. |
+| **CuteAvatar (Vector SVG)** | Componente SVG nativo | Sistema de 8 avatares vectoriales SVG nítidos e interactivos con soporte de degradados y sombras. |
 | **Vanilla CSS Design System** | CSS Moderno | Sistema de tokens CSS personalizados (`--primary`, glassmorphism, gradientes pastel, sombras suaves y tipografías Quicksand y Plus Jakarta Sans). Sin dependencias pesadas como Tailwind. |
 | **Web Audio API** | Nativo de navegador | Generación sintética de ondas sinusoidales para sonidos (*chime*, *pop*, *sparkle*) sin requerir descarga de archivos MP3 externos. |
 | **Canvas Confetti** | `v1.9.4` | Animaciones de partículas y confeti rosa al recibir reacciones de amor o guardar cambios. |

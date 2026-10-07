@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageSquareHeart, Sliders, Volume2, VolumeX, Sparkles, ExternalLink, Bot } from 'lucide-react';
 import { useBot } from '../context/BotContext';
+import CuteAvatar from './CuteAvatar';
 
 export default function Navbar({ activeView, setActiveView, onToggleWidgetPreview }) {
   const { config, updateConfig, toggleSound } = useBot();
@@ -17,15 +18,11 @@ export default function Navbar({ activeView, setActiveView, onToggleWidgetPrevie
       {/* Brand logo & title */}
       <div className="nav-brand">
         <div className="brand-avatar animate-float">
-          {config.botAvatarType === 'url' ? (
-            <img src={config.botAvatar} alt="avatar" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
-          ) : (
-            <span>{config.botAvatar || '🎀'}</span>
-          )}
+          <CuteAvatar id={config.botAvatar} size={28} />
         </div>
         <div>
           <div className="brand-title">
-            {config.botName || 'Lola AI'}
+            {config.botName || 'Mila AI'}
             <Sparkles size={16} className="animate-sparkle" style={{ color: 'var(--primary)' }} />
           </div>
           <div className="brand-subtitle">{config.companyName || 'Boutique & Café Rosé'}</div>
