@@ -1,0 +1,168 @@
+:root {
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-cute: 'Quicksand', cursive, sans-serif;
+
+  /* Theme: Pink (Default) */
+  --primary: #ff65a3;
+  --primary-hover: #ff478e;
+  --primary-light: #fff0f6;
+  --primary-gradient: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+  --secondary-gradient: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  --bubble-user: linear-gradient(135deg, #ff758c 0%, #ff65a3 100%);
+  --bubble-bot: #ffffff;
+  
+  --bg-gradient: radial-gradient(circle at 10% 20%, rgba(255, 209, 220, 0.45) 0%, rgba(254, 238, 245, 0.6) 40%, rgba(243, 232, 255, 0.4) 90%);
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-border: rgba(255, 182, 193, 0.4);
+  --glass-shadow: 0 12px 36px rgba(255, 105, 180, 0.12), 0 2px 8px rgba(0, 0, 0, 0.03);
+
+  --text-main: #3d2b3d;
+  --text-muted: #8b6e8a;
+  --text-light: #a892a7;
+  
+  --accent-sparkle: #ffd166;
+  --accent-heart: #ff4d6d;
+  --accent-purple: #c084fc;
+  
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-full: 9999px;
+}
+
+[data-theme="lavender"] {
+  --primary: #a855f7;
+  --primary-hover: #9333ea;
+  --primary-light: #faf5ff;
+  --primary-gradient: linear-gradient(135deg, #c084fc 0%, #a855f7 100%);
+  --secondary-gradient: linear-gradient(135deg, #e9d5ff 0%, #c4b5fd 100%);
+  --bubble-user: linear-gradient(135deg, #c084fc 0%, #a855f7 100%);
+  --bg-gradient: radial-gradient(circle at 10% 20%, rgba(233, 213, 255, 0.45) 0%, rgba(250, 245, 255, 0.6) 40%, rgba(254, 243, 199, 0.3) 90%);
+  --card-border: rgba(216, 180, 254, 0.4);
+  --glass-shadow: 0 12px 36px rgba(168, 85, 247, 0.12), 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="peach"] {
+  --primary: #fb7185;
+  --primary-hover: #f43f5e;
+  --primary-light: #fff1f2;
+  --primary-gradient: linear-gradient(135deg, #fda4af 0%, #fb7185 100%);
+  --secondary-gradient: linear-gradient(135deg, #fed7aa 0%, #fbcfe8 100%);
+  --bubble-user: linear-gradient(135deg, #fda4af 0%, #fb7185 100%);
+  --bg-gradient: radial-gradient(circle at 10% 20%, rgba(254, 215, 170, 0.4) 0%, rgba(255, 241, 242, 0.6) 40%, rgba(254, 240, 138, 0.3) 90%);
+  --card-border: rgba(253, 164, 175, 0.4);
+  --glass-shadow: 0 12px 36px rgba(251, 113, 133, 0.12), 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="mint"] {
+  --primary: #14b8a6;
+  --primary-hover: #0d9488;
+  --primary-light: #f0fdfa;
+  --primary-gradient: linear-gradient(135deg, #5eead4 0%, #14b8a6 100%);
+  --secondary-gradient: linear-gradient(135deg, #a7f3d0 0%, #bae6fd 100%);
+  --bubble-user: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+  --bg-gradient: radial-gradient(circle at 10% 20%, rgba(204, 251, 241, 0.45) 0%, rgba(240, 253, 250, 0.6) 40%, rgba(254, 243, 199, 0.3) 90%);
+  --card-border: rgba(153, 246, 228, 0.4);
+  --glass-shadow: 0 12px 36px rgba(20, 184, 166, 0.12), 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Custom Girlie Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 240, 246, 0.6);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 101, 163, 0.35);
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 101, 163, 0.6);
+}
+
+/* Animations */
+@keyframes cuteBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes cuteFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 101, 163, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(255, 101, 163, 0.6); }
+}
+
+@keyframes sparkleSpin {
+  0% { transform: rotate(0deg) scale(0.9); }
+  50% { transform: rotate(180deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(0.9); }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-float {
+  animation: cuteFloat 3.5s ease-in-out infinite;
+}
+
+.animate-bounce-subtle {
+  animation: cuteBounce 2s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkleSpin 4s linear infinite;
+}
+
+/* Button & Utility micro-interactions */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+input, textarea, select {
+  font-family: inherit;
+  outline: none;
+}
